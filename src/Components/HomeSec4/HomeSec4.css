@@ -1,0 +1,25 @@
+.HomeSec4Div{
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+    color: #008DD2;
+}
+.HomeSec4Div i{
+    font-size: 60px;
+    display: inline-block;
+    transition: all 0.4s;
+}
+.HomeSec4Div i:hover{
+    transform: scale(0.9);
+}
+.HomeSec4 h2{
+    position: relative;
+    padding-bottom: 25px;
+    font-weight: bold;
+}
+.HomeSec4 h2::before{
+    content: "";
+    position: absolute;
+    top: 80%;
+    height: 1px;
+    background-color: #008DD2;
+    width: 70px;
+}

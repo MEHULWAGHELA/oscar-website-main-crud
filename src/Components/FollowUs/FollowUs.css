@@ -1,0 +1,15 @@
+.FollowUs{
+    text-align: center;
+    background-color: #02122d;
+    color: #fff;
+}
+.FollowUs a{
+    color: #fff;
+    font-size: 21px;
+    /* margin-right: 20px; */
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    background-color: #008DD2;
+    display: inline-block;
+}

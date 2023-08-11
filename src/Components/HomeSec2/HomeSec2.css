@@ -1,0 +1,19 @@
+.homsec2 i{
+    font-size: 50px;
+    transition: all 0.4s;
+}
+.homsec2 .card:hover i{
+    transform: scale(0.8);
+}
+.homsec2 .card{
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+    border: none;
+}
+.homsec2 h3{
+    font-size: 22px;
+    font-weight: bold;
+}
+.homsec2div1 p{
+    text-align: justify;
+    color: gray;
+}

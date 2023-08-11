@@ -1,0 +1,30 @@
+.icons i{
+    font-size: 50px;
+    color: #008DD2;
+}
+.AboutSec3col{
+    /* border-bottom: 2px solid gray; */
+    position: relative;
+    height: 120px;
+}
+.AboutSec3col::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%);
+    margin: 0 auto;
+    height: 1px;
+    background-color: black;
+}
+.AboutQute{
+    /* font-family: "Vidaloka", Sans-serif; */
+    font-family: "Roboto";
+    font-weight: 600;
+    line-height: 1.4em;
+    color: #6ec1e4;
+}
+.AboutSec3div2{
+    background-image: linear-gradient(110deg, #27252d 0%, #43403e 100%);
+}

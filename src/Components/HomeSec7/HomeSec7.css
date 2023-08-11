@@ -1,0 +1,37 @@
+@keyframes animation{
+    0%{transform: scale(1);}
+    25%{transform: scale(0.8);}
+    50%{transform: scale(1.2);}
+    /* 75%{transform: scale(0.8);} */
+    100%{transform: scale(1);}
+}
+.HomeSec7 h2{
+    position: relative;
+    padding-bottom: 25px;
+    font-weight: bold;
+}
+.HomeSec7 h2::before{
+    content: "";
+    position: absolute;
+    top: 90%;
+    height: 1px;
+    z-index: 999;
+    background-color: #008DD2;
+    width: 55px;
+}
+
+.HomeSec7{
+    background-color: #414b4f;
+}
+.HomeSec7 i{
+    font-size: 65px;
+    width: 80px;
+    margin: 0 auto;
+    transition: all 0.4s;
+}
+.HomeSec7 i:hover{
+    transform: scale(1.15);
+    /* animation: animation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite; */
+}

@@ -1,0 +1,27 @@
+.HomeSec5{
+    background-image: url('./../../Assets/Images/Carousal2/our-achievements.png');
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+    background-attachment: fixed;
+    background-position: center center;
+}
+.HomeSec5 p{
+    font-weight: 600;
+}
+.HomeSec5Col h3{
+    font-size: 70px;
+}
+.HomeSec5h2{
+    font-size: 32px;
+    font-weight: 700;
+}
+.HomeSec5Col h2{
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.HomeSec5Col h6{
+    font-weight: bold;
+}

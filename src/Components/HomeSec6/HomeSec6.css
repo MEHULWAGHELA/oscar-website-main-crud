@@ -1,0 +1,136 @@
+.HomeSec6Image{
+    height: 408px;
+    width: 100%;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+.HomeSec6Image:hover .HomeSec6Hover1{
+    bottom: 15px;
+}
+.HomeSec6Image:hover .HomeSec6Image{
+    transform: scale(1.1) !important;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.378);
+}
+.HomeSec6 h2{
+    position: relative;
+    /* padding-bottom: 25px; */
+    font-weight: bold;
+}
+.HomeSec6 h2::before{
+    content: "";
+    position: absolute;
+    top: 150%;
+    height: 1px;
+    background-color: #008DD2;
+    width: 55px;
+}
+.HomeSec6btn{
+    position: relative;
+    padding-bottom: 55px;
+}
+.HomeSec6btn button{
+    position: absolute;
+    right: 0;
+    top: -20px;
+}
+.DiaIMG{
+    position: relative;
+    height: 163.5px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    transition: all 0.4s;
+}
+.HomeSec6Reletive:hover .DiaIMG{
+    transform: scale(1.2);
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.378);
+}
+.HomeSec6Reletive{
+    position: relative;
+    overflow: hidden;
+}
+
+.HomeSec6Reletive:hover .HomeSec6Hover{
+    bottom: 15px;
+}
+
+.HomeSec6img1{
+    transform: scale(1);
+    transition: all 0.4s;
+}
+.HomeSec6img1:hover{
+    transform: scale(1.1);
+}
+
+.HomeSec6Hover , .HomeSec6Hover1{
+    position: absolute;
+    bottom: 0;
+    /* padding: 10px 0; */
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+/* media qury */
+@media (max-width: 6000px) { 
+    .HomeSec6Image{
+        height: 350.3px;
+    }
+}
+@media (max-width: 3000px) { 
+    .HomeSec6Image{
+        height: 350.3px;
+    }
+}
+@media (max-width: 1300px) { 
+    .HomeSec6Image{
+        height: 351px;
+    }
+}
+@media (max-width: 1200px) { 
+    .HomeSec6Image{
+        height: 294px;
+    }
+    .DiaIMG{
+        height: 135px;
+    }
+}
+@media (max-width: 992px) { 
+    .HomeSec6Image{
+        height: 219px;
+    }
+    .DiaIMG{
+        height: 97.4px;
+    }
+}
+
+@media (max-width: 767px) { 
+    .HomeSec6Image{
+        height: 290px;
+    }
+    .HomeSec6btn button{
+        right: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 150px;
+        font-size: 14px;
+    }
+    .DiaIMG{
+        height: 270px;
+    }
+}
+@media (max-width: 400px) { 
+    .HomeSec6Image{
+        height: 200px;
+    }
+    .DiaIMG{
+        height: 180px;
+    }
+}

@@ -1,0 +1,60 @@
+.contactSec1P{
+    text-decoration: none;
+    font-size: 17px;
+    color: #008DD2;
+    font-weight: 700;
+}
+.contactSec1P:hover{
+    color: #008DD2;
+}
+.contactSec1h2{
+    color: #008DD2;
+    font-size: 60px;
+}
+.contactSec1h4{
+    padding: 20px 0 15px 0;
+    color: #777777;
+    font-weight: 700;
+    font-size: 21px;
+}
+.contactSec1Div2{
+    background-color: #008DD2;
+    color: white;
+    text-align: center;
+}
+
+.form{
+    border: 1px solid #e3e3e3;
+    padding: 25px;
+}
+.form h5{
+    font-weight: 700;
+    color: #008DD2;
+    padding-bottom: 45px;
+}
+.form label{
+    color: #404040;
+    font-size: 14px;
+    margin-top: 8px;
+}
+.form input,.form textarea{
+    padding: 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 14px;
+}
+.form input:focus , .form textarea:focus{
+    outline: none;
+}
+.contactbtn{
+    background-color: #008DD2;
+    padding: 12px 25px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    transition: all 0.3s;
+}
+.contactbtn:hover{
+    background-color: #404040;
+}   

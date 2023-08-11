@@ -1,0 +1,56 @@
+.HomeSec8Img{
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+.HomeSec8overflow{
+    height: 100%;
+    width: 100%;
+}
+.HomeSec8Img img{
+    width: 100%;
+}
+.HomeSec8 h2{
+    position: relative;
+    padding-bottom: 25px;
+}
+.HomeSec8 h2::before{
+    content: "";
+    position: absolute;
+    top: 90%;
+    height: 1px;
+    background-color: #008DD2;
+    width: 70px;
+}
+
+
+.slick-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  .slick-list {
+    position: relative;
+    display: block !important;
+    width: 100%;
+  }
+  .slick-slide div {
+    width: auto;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+  
+  
+  /* For the demo */
+  .HomeSec8 .slick-prev,
+  .HomeSec8 .slick-next {
+    z-index: 999 !important;
+    /* background-color: black; */
+    border-radius: 55%;
+  }
+  .HomeSec8 .slick-prev {
+    left: 25px !important;
+  }
+  .HomeSec8 .slick-next {
+    right: 25px !important;
+  }

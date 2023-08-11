@@ -1,0 +1,12 @@
+.gallaryimghover{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all 0.4s;
+}
+.gallaryimghover:hover{
+    opacity: 1;
+}

@@ -1,0 +1,72 @@
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
+
+.HomeSec3Img{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.HomeSec3overflow{
+    overflow: hidden;
+}
+.HomeSec3Img img{
+    transition: all 0.4s;
+    height: 230px;
+    width: 100%;
+    transform: scale(1.1);
+}
+.HomeSec3Img:hover img{
+    transform: scale(1);
+}
+.HomeSec3Img .card-footer a{
+    text-decoration: none;
+    color: #008DD2;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+.HomeSec3Img .card-footer a:hover{
+    color: #404040;
+}
+.HomeSec3 h2{
+    position: relative;
+    padding-bottom: 25px;
+}
+.HomeSec3 h2::before{
+    content: "";
+    position: absolute;
+    top: 90%;
+    height: 1px;
+    background-color: #008DD2;
+    width: 70px;
+}
+
+
+.slick-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  .slick-list {
+    position: relative;
+    display: block !important;
+    width: 100%;
+  }
+  .slick-slide div {
+    width: auto;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+  
+  
+  /* For the demo */
+  .slick-prev,
+  .slick-next {
+    z-index: 999 !important;
+  }
+  .slick-prev {
+    left: 40px !important;
+  }
+  .slick-next {
+    right: 40px !important;
+  }
+  

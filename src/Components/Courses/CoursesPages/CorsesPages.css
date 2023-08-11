@@ -1,0 +1,82 @@
+.accordion-button:not(.collapsed){
+    color: #008DD2 !important;
+    background-color: initial !important;
+}
+.accordion-button:focus{
+    z-index: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.accordion-button{
+    padding-left: 5px !important;
+    padding-right: 10px !important;
+    font-size: 20px !important;
+    color: #008DD2 !important;
+    font-weight: 500;
+}
+.accordion-button::after {
+    content: "\f0d7" !important;
+    color: black !important;
+    font-size: 16px;
+    display: inline-block;
+    font-family: FontAwesome;
+    background-image: none !important;
+}
+.accordion-button:not(.collapsed)::after{
+    content: "\f0d8" !important;
+    display: inline-block;
+    font-family: FontAwesome;
+    background-image: none !important;
+    transform: none !important;
+}
+.accordion-button:hover{
+    z-index: 0 !important;
+}
+.CoursesImagesDiv img{
+    height: 200px;
+    width: 100%;
+}
+.overviewDiv{
+    color: #666666;
+    font-weight: 100;
+}
+.CoursesPageFocus{
+    /* transition: all 0.3s; */
+}
+.CoursesPageFocus:hover{
+    background-color: #008DD2;
+    color: black;
+}
+.CoursesPageFocus.active,.CoursesPageFocus:focus{
+    color: #008DD2;
+    border-top: 5px solid #008DD2 !important;
+    border-right: 1px solid #008DD2 !important;
+    border-bottom: 1px solid #008DD2 !important;
+    border-left: none !important;
+}
+
+@media (max-width: 991.98px) { 
+    .CoursesImagesDiv img{
+        height: 180px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .CoursesImagesDiv img{
+        height: 350px;
+        width: 100%;
+    }
+}
+@media (max-width: 500px) { 
+    .CoursesImagesDiv img{
+        height: 250px;
+        width: 100%;
+    }
+}
+@media (max-width: 380px) { 
+    .CoursesImagesDiv img{
+        height: 220px;
+        width: 100%;
+    }
+}

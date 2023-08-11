@@ -1,0 +1,59 @@
+.CoursesImg{
+    height: 230px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.CoursesImg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.4s;
+}
+.CoursesHover{
+    /* overflow: hidden; */
+    transition: all 0.4s;
+}
+.CoursesHover:hover .CoursesImg img{
+    transform: scale(1.1);
+}
+.CoursesHover:hover{
+    box-shadow: 0 15px 20px 0 rgba(0,0,0,0.2);
+}
+.CourseFootera{
+    color: #008DD2 !important;
+    text-decoration: none;
+    font-weight: 600; 
+    transition: all 0.3s;
+}
+.CourseFootera:hover{
+    color: #404040 !important;
+    text-decoration: underline;
+}
+.active>.page-link{
+    z-index: 0 !important;
+}
+.page-link:focus{
+    z-index: 0 !important;
+    box-shadow: none !important;
+}
+.page-link:hover{
+    z-index: 0 !important;
+}
+/* .CoursesPageFocus{
+    border-top: 5px solid transparent !important;
+    border-right: 1px solid transparent !important;
+    border-bottom: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+    transition: all 0.3s;
+}
+.CoursesPageFocus:hover{
+    background-color: #008DD2;
+    color: black;
+}
+.CoursesPageFocus:active,.CoursesPageFocus:focus{
+    border-top: 5px solid #008DD2 !important;
+    border-right: 1px solid #008DD2 !important;
+    border-bottom: 1px solid #008DD2 !important;
+    border-left: none !important;
+} */

@@ -1,0 +1,35 @@
+.aboutSec1{
+    padding-top: 100px;
+}
+.aboutSec1 h2{
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+.aboutSec1bgc{
+    background-color: #305566;
+}
+.aboutSec1 h2::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 2px;
+    background-color: #008DD2;
+    width: 50px;
+    transform: translate(-50%,-50%);
+}
+
+@media (max-width: 767.98px) { 
+    .aboutSec1{
+        padding-top: 98px;
+    }
+   }
+
+  @media (max-width: 575.98px) { 
+    .aboutSec1{
+        padding-top: 93px;
+    }
+   }
