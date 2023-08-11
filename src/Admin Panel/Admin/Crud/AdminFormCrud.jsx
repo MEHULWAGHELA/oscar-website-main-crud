@@ -14,7 +14,7 @@ import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
 const AdminFormCrud = () => {
   let [arr, setarr] = useState([]);
-  let [obj, setobj] = useState({ hobbies: "" });
+  let [obj, setobj] = useState({});
   let reference = useRef();
 
   const setData = () => {
@@ -53,57 +53,21 @@ const AdminFormCrud = () => {
       .catch((err) => console.log(err));
   };
 
-  const editFunction = (id) => {
-    axios
-      .get(
-        "https://student-api.mycodelibraries.com/api/user/get-user-by-id?id=" +
-          id
-      )
-      .then((res) => {
-        obj = res.data.data;
-        obj.hobbies = obj.hobbies.split(",");
-        setobj({ ...obj });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
-  const updateapi = () => {
-    obj.id = obj._id;
-    axios
-      .post("https://student-api.mycodelibraries.com/api/user/update", obj)
-      .then((res) => getData())
-      .catch((err) => console.log(err));
-  };
 
   useEffect(() => {
     getData();
   }, []);
 
   const changeData = (e) => {
-    if (e.target.name === "hobbies") {
-      if (e.target.checked) {
-        obj.hobbies = [...obj.hobbies, e.target.value];
-      } else {
-        obj.hobbies = obj.hobbies.filter((x) => !x.includes(e.target.value));
-      }
-    } else if (e.target.name === "userImage") {
-      obj[e.target.name] = e.target.files[0];
-    } else {
-      obj[e.target.name] = e.target.value;
-    }
+    obj[e.target.name] = e.target.value;
     setobj({ ...obj });
   };
 
   const submitFunction = (e) => {
     e.preventDefault();
-    if (obj._id === undefined) {
-      setData();
-    } else {
-      updateapi();
-    }
-    obj = { hobbies: "" };
+    setData();
+    obj = {};
     setobj({ ...obj });
     reference.current.value = "";
   };
@@ -221,12 +185,6 @@ const AdminFormCrud = () => {
                       className="me-2 btn text-bg-danger"
                     >
                       Delete
-                    </button>
-                    <button
-                      onClick={() => editFunction(x._id)}
-                      className="btn text-bg-warning"
-                    >
-                      Edit
                     </button>
                   </td>
                 </tr>

@@ -10,11 +10,10 @@ import {
   Row,
   Table,
 } from "reactstrap";
-import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
 const FormCrud = () => {
   let [arr, setarr] = useState([]);
-  let [obj, setobj] = useState({ hobbies: "" });
+  let [obj, setobj] = useState({});
   let reference = useRef();
 
   const setData = () => {
@@ -54,54 +53,21 @@ const FormCrud = () => {
       .catch((err) => console.log(err));
   };
 
-  const editFunction = (id) => {
-    axios
-      .get("http://localhost:1000/api/form/getdata?id=" + id)
-      .then((res) => {
-        obj = res.data.data;
-        obj.hobbies = obj.hobbies.split(",");
-        setobj({ ...obj });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const updateapi = () => {
-    obj.id = obj._id;
-    axios
-      .post("http://localhost:1000/api/form/adddata", obj)
-      .then((res) => getData())
-      .catch((err) => console.log(err));
-  };
 
   useEffect(() => {
     getData();
   }, []);
 
   const changeData = (e) => {
-    if (e.target.name === "hobbies") {
-      if (e.target.checked) {
-        obj.hobbies = [...obj.hobbies, e.target.value];
-      } else {
-        obj.hobbies = obj.hobbies.filter((x) => !x.includes(e.target.value));
-      }
-    } else if (e.target.name === "userImage") {
-      obj[e.target.name] = e.target.files[0];
-    } else {
-      obj[e.target.name] = e.target.value;
-    }
+    obj[e.target.name] = e.target.value;
     setobj({ ...obj });
   };
 
   const submitFunction = (e) => {
     e.preventDefault();
-    if (obj._id === undefined) {
-      setData();
-    } else {
-      updateapi();
-    }
-    obj = { hobbies: "" };
+    setData();
+
+    obj = {};
     setobj({ ...obj });
     reference.current.value = "";
   };
@@ -184,7 +150,7 @@ const FormCrud = () => {
                 <Col md={6}>
                   <FormGroup>
                     <Label for="textarea" className="fw-600"></Label>
-                    <Textarea
+                    <textarea
                       id="textarea"
                       name="textarea"
                       placeholder=""
@@ -235,12 +201,6 @@ const FormCrud = () => {
                     >
                       Delete
                     </button>
-                    <button
-                      onClick={() => editFunction(x._id)}
-                      className="btn text-bg-warning"
-                    >
-                      Edit
-                    </button>
                   </td>
                 </tr>
               );
@@ -252,4 +212,4 @@ const FormCrud = () => {
   );
 };
 
-export default Sidebar(FormCrud);
+export default Hoc(FormCrud)
