@@ -11,6 +11,7 @@ import {
   Table,
 } from "reactstrap";
 import Hoc from "../Hoc";
+import { Authorization } from "../../AuthorizationComponent";
 const SliderCrud = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
@@ -24,7 +25,7 @@ const SliderCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/slider/adddata", formdata)
+      .post("http://localhost:1000/api/slider/adddata", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -33,7 +34,7 @@ const SliderCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/slider/getdata")
+      .get("http://localhost:1000/api/slider/getdata",Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -43,7 +44,7 @@ const SliderCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/slider/deletedata?id=${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })

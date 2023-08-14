@@ -11,6 +11,7 @@ import {
   Table,
 } from "reactstrap";
 import Hoc from "../Hoc";
+import { Authorization } from "../../AuthorizationComponent";
 const FormCrud = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
@@ -27,7 +28,7 @@ const FormCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/form/adddata", formdata)
+      .post("http://localhost:1000/api/form/adddata", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -36,7 +37,7 @@ const FormCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/form/getdata")
+      .get("http://localhost:1000/api/form/getdata",Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -46,7 +47,7 @@ const FormCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/form/deletedata?id=${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })

@@ -20,6 +20,7 @@ function AdminSignup() {
                 window.alert(res.data.message)
             }
             else if (res.data.message == "Login successful") {
+                localStorage.setItem('token', res.data.data.token)
                 window.location.href = "/home"
             }
             else {

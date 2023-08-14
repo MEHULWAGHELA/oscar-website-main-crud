@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
+import { Authorization } from "../../AuthorizationComponent";
 const GalleryCrud = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
@@ -21,11 +22,8 @@ const GalleryCrud = () => {
     let formdata = new FormData();
     formdata.append("image", obj.image);
     formdata.append("title", obj.title);
-    for (let x of formdata.entries()) {
-      console.log(x);
-    }
     axios
-      .post("http://localhost:1000/api/gallery/adddata", formdata)
+      .post("http://localhost:1000/api/gallery/adddata", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -34,7 +32,7 @@ const GalleryCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/gallery/getdata")
+      .get("http://localhost:1000/api/gallery/getdata",Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -44,7 +42,7 @@ const GalleryCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/gallery/deletedata?id=${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })

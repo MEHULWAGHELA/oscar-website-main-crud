@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
+import { Authorization } from "../../AuthorizationComponent";
 const InformationCrud = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
@@ -28,7 +29,7 @@ const InformationCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/information/adddata", formdata)
+      .post("http://localhost:1000/api/information/adddata", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -37,7 +38,7 @@ const InformationCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/information/getdata")
+      .get("http://localhost:1000/api/information/getdata",Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -47,7 +48,7 @@ const InformationCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/information/deletedata?id=${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })

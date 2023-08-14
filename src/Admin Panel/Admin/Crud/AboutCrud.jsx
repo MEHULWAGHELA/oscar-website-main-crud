@@ -11,6 +11,7 @@ import {
   Table,
 } from "reactstrap";
 import Hoc from "../Hoc";
+import { Authorization } from "../../AuthorizationComponent";
 const AboutCrud = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
@@ -25,7 +26,7 @@ const AboutCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/about/adddata", formdata)
+      .post("http://localhost:1000/api/about/adddata", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -34,7 +35,7 @@ const AboutCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/about/getdata")
+      .get("http://localhost:1000/api/about/getdata", Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -44,7 +45,7 @@ const AboutCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/about/deletedata${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })
@@ -92,7 +93,7 @@ const AboutCrud = () => {
                       id="icon"
                       name="icon"
                       placeholder=""
-                      type="text"
+                      type="file"
                       className="main"
                       onChange={changeData}
                       value={obj.icon || ""}

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Col, Container, Form, FormGroup, Input, Label, Row, Table } from 'reactstrap'
 import Sidebar from '../Sidebar'
 import Hoc from '../Hoc'
+import { Authorization } from '../../AuthorizationComponent'
 const Placement = () => {
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({ hobbies: "" });
@@ -21,7 +22,7 @@ const Placement = () => {
       console.log(x);
     }
     axios
-      .post("https://student-api.mycodelibraries.com/api/user/add", formdata)
+      .post("https://student-api.mycodelibraries.com/api/user/add", formdata,Authorization())
       .then((res) => {
         console.log(res);
         getData();
@@ -30,7 +31,7 @@ const Placement = () => {
   };
   const getData = () => {
     axios
-      .get("https://student-api.mycodelibraries.com/api/user/get")
+      .get("https://student-api.mycodelibraries.com/api/user/get",Authorization())
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -40,7 +41,7 @@ const Placement = () => {
   const deleteapi = (a) => {
     a = `https://student-api.mycodelibraries.com/api/user/delete?id=${a}`;
     axios
-      .delete(a)
+      .delete(a,Authorization())
       .then((res) => {
         getData();
       })
