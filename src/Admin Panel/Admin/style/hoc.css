@@ -1,0 +1,16 @@
+#hoc {
+    padding-top: 110px !important;
+}
+
+#logout-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    position: absolute;
+    top: 34px;
+    z-index: 9999;
+    right: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}

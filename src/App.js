@@ -60,19 +60,26 @@ function App() {
         <Header1 />
         <Routes>
           <Route path='/' element={<Navigate to='/home' />} />
-          <Route path='/admin' element={<AdminSignup />}>
-            <Route path='slider' element={<SliderCrud />} />
-            <Route path='about' element={<AboutCrud />} />
-            <Route path='adminform' element={<AdminFormCrud />} />
-            <Route path='form' element={<FormCrud />} />
-            <Route path='gallery' element={<GalleryCrud />} />
-            <Route path='courses' element={<CoursesCrud />} />
-            <Route path='information' element={<InformationCrud />} />
-            <Route path='learn' element={<LearnCrud />} />
-            <Route path='partner' element={<PartnerCrud />} />
-            <Route path='training' element={<TrainingCrud />} />
-            <Route path='placement' element={<PlacementCrud />} />
-          </Route>
+          {console.log(localStorage.getItem('isLogin'))}
+          {localStorage.getItem('isLogin') ?
+            <>
+              <Route path='slidercrud' element={<SliderCrud />} />
+              <Route path='aboutcrud' element={<AboutCrud />} />
+              <Route path='adminformcrud' element={<AdminFormCrud />} />
+              <Route path='formcrud' element={<FormCrud />} />
+              <Route path='gallerycrud' element={<GalleryCrud />} />
+              <Route path='coursescrud' element={<CoursesCrud />} />
+              <Route path='informationcrud' element={<InformationCrud />} />
+              <Route path='learncrud' element={<LearnCrud />} />
+              <Route path='partnercrud' element={<PartnerCrud />} />
+              <Route path='trainingcrud' element={<TrainingCrud />} />
+              <Route path='placementcrud' element={<PlacementCrud />} />
+            </>
+            :
+            <>
+              <Route path='/admin' element={<AdminSignup />} />
+            </>
+          }
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/courses' element={<Courses />}>
@@ -93,7 +100,6 @@ function App() {
             <Route path='fifthpage' element={<FifthPage />} />
           </Route>
           <Route path='/contactus' element={<CountactUs />} />
-          {/* <Route path='/contactus' element={<CountactUs />}/> */}
         </Routes>
         <Footer />
       </BrowserRouter>

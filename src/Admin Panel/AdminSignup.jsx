@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import "./AdminSignup.css"
 import axios from 'axios';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 function AdminSignup() {
+    let [adminToken, setToken, removeToken] = useCookies('hello')
     const [obj, setobj] = useState({ name: "", password: "" });
 
     const set = (e) => {
@@ -20,8 +22,13 @@ function AdminSignup() {
                 window.alert(res.data.message)
             }
             else if (res.data.message == "Login successful") {
-                localStorage.setItem('token', res.data.data.token)
-                window.location.href = "/home"
+                console.log(res.data.data.token.split('.'))
+                let expiry = new Date()
+                expiry.setMinutes(expiry.getMinutes() + 10)
+                setToken(res.data.data.token, { path: "/admin", expires: expiry })
+                localStorage.setItem('isLogin', true)
+                // window.location.href = "/slidercrud"
+                console.log(adminToken)
             }
             else {
                 window.alert(res.data.message)
