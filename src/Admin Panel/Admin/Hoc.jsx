@@ -4,6 +4,9 @@ import { Fragment } from 'react'
 import Sidebar from './Sidebar'
 const Hoc = (Component) => {
     const NewComponent = () => {
+        const logoutFunction=()=>{
+            localStorage.setItem('isLogin',false)
+        }
         return (
             <Fragment>
                 <div className="row" id="hoc">
@@ -14,6 +17,7 @@ const Hoc = (Component) => {
                     <div className="col-9">
                         <button
                             id="logout-button"
+                            onClick={logoutFunction}
                         >
                             Log out
                         </button>

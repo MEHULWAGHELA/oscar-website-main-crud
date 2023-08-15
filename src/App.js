@@ -31,6 +31,7 @@ import LearnCrud from './Admin Panel/Admin/Crud/LearnCrud';
 import PartnerCrud from './Admin Panel/Admin/Crud/PartnerCrud';
 import PlacementCrud from './Admin Panel/Admin/Crud/PlacementCrud';
 import TrainingCrud from './Admin Panel/Admin/Crud/TrainingCrud';
+import { CookiesProvider } from 'react-cookie';
 
 function App() {
   let ary = [
@@ -55,7 +56,7 @@ function App() {
     { maintitle: 'C++ PROGRAMMING', to: 'c++', img: require('./Assets/Images/Courses/img19.png'), p1: '', heading: '', p2: '', p3: '', p4: '', p5: '', p6: '', accordian: [{ eventkey: 1, title: '', items: [] }] },
   ]
   return (
-    <>
+    <CookiesProvider>
       <BrowserRouter>
         <Header1 />
         <Routes>
@@ -63,6 +64,7 @@ function App() {
           {console.log(localStorage.getItem('isLogin'))}
           {localStorage.getItem('isLogin') ?
             <>
+              <Route path='admin' element={<Navigate to={'/slidercrud'} />} />
               <Route path='slidercrud' element={<SliderCrud />} />
               <Route path='aboutcrud' element={<AboutCrud />} />
               <Route path='adminformcrud' element={<AdminFormCrud />} />
@@ -103,7 +105,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </>
+    </CookiesProvider>
   );
 }
 

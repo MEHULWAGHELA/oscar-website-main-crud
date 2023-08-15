@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 function AdminSignup() {
-    let [adminToken, setToken, removeToken] = useCookies('hello')
+    let [token, setToken, removeToken] = useCookies('hello')
     const [obj, setobj] = useState({ name: "", password: "" });
 
     const set = (e) => {
@@ -22,13 +22,12 @@ function AdminSignup() {
                 window.alert(res.data.message)
             }
             else if (res.data.message == "Login successful") {
-                console.log(res.data.data.token.split('.'))
                 let expiry = new Date()
                 expiry.setMinutes(expiry.getMinutes() + 10)
-                setToken(res.data.data.token, { path: "/admin", expires: expiry })
+                setToken('token',res.data.data.token, { path: "/admin", expires: expiry })
+                console.log(token)
                 localStorage.setItem('isLogin', true)
-                // window.location.href = "/slidercrud"
-                console.log(adminToken)
+                window.location.href = "/slidercrud"
             }
             else {
                 window.alert(res.data.message)

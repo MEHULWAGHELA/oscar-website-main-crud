@@ -12,11 +12,14 @@ import {
 } from "reactstrap";
 import Hoc from "../Hoc";
 import { Authorization } from "../../AuthorizationComponent";
+import { useCookies } from "react-cookie";
 const AboutCrud = () => {
+  let [cookies,setcookies,removecookies]=useCookies('home')
+  console.log(cookies)
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
   let reference = useRef();
-
+  let token=Authorization()
   const setData = () => {
     let formdata = new FormData();
     formdata.append("icon", obj.icon);
@@ -26,7 +29,7 @@ const AboutCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/about/adddata", formdata,Authorization())
+      .post("http://localhost:1000/api/about/adddata", formdata,token)
       .then((res) => {
         console.log(res);
         getData();
@@ -35,7 +38,7 @@ const AboutCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/about/getdata", Authorization())
+      .get("http://localhost:1000/api/about/getdata", token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -45,7 +48,7 @@ const AboutCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/about/deletedata${a}`;
     axios
-      .delete(a,Authorization())
+      .delete(a,token)
       .then((res) => {
         getData();
       })
