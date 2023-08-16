@@ -61,7 +61,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Navigate to='/home' />} />
           {console.log(localStorage.getItem('isLogin'))}
-          {localStorage.getItem('isLogin') ?
+          {localStorage.getItem('token') ?
             <>
               <Route path='slidercrud' element={<SliderCrud />} />
               <Route path='aboutcrud' element={<AboutCrud />} />
