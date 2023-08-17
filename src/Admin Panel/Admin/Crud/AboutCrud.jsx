@@ -13,7 +13,7 @@ import {
 import Hoc from "../Hoc";
 import { Authorization } from "../../AuthorizationComponent";
 const AboutCrud = () => {
-  let token = Authorization()
+  let token = Authorization();
   console.log(token);
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});

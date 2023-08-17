@@ -14,6 +14,7 @@ import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
 import { Authorization } from "../../AuthorizationComponent";
 const AdminFormCrud = () => {
+  let token = Authorization();
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
   let reference = useRef();
@@ -28,7 +29,7 @@ const AdminFormCrud = () => {
       console.log(x);
     }
     axios
-      .post("https://student-api.mycodelibraries.com/api/user/add", formdata,Authorization())
+      .post("https://student-api.mycodelibraries.com/api/user/add", formdata, token)
       .then((res) => {
         console.log(res);
         getData();
@@ -37,7 +38,7 @@ const AdminFormCrud = () => {
   };
   const getData = () => {
     axios
-      .get("https://student-api.mycodelibraries.com/api/user/get",Authorization())
+      .get("https://student-api.mycodelibraries.com/api/user/get", token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -47,7 +48,7 @@ const AdminFormCrud = () => {
   const deleteapi = (a) => {
     a = `https://student-api.mycodelibraries.com/api/user/delete?id=${a}`;
     axios
-      .delete(a,Authorization())
+      .delete(a, token)
       .then((res) => {
         getData();
       })

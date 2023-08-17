@@ -14,8 +14,9 @@ import Sidebar from "../Sidebar";
 import Hoc from "../Hoc";
 import { Authorization } from "../../AuthorizationComponent";
 const LearnCrud = () => {
+  let token = Authorization();
   let [arr, setarr] = useState([]);
-  let [obj, setobj] = useState({ });
+  let [obj, setobj] = useState({});
   let reference = useRef();
 
   const setData = () => {
@@ -28,7 +29,7 @@ const LearnCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/learn/adddata", formdata,Authorization())
+      .post("http://localhost:1000/api/learn/adddata", formdata, token)
       .then((res) => {
         console.log(res);
         getData();
@@ -37,7 +38,7 @@ const LearnCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/learn/getdata",Authorization())
+      .get("http://localhost:1000/api/learn/getdata", token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -47,7 +48,7 @@ const LearnCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/learn/deletedata?id=${a}`;
     axios
-      .delete(a,Authorization())
+      .delete(a, token)
       .then((res) => {
         getData();
       })

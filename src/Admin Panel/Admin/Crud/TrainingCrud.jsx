@@ -13,6 +13,7 @@ import {
 import Hoc from "../Hoc";
 import { Authorization } from "../../AuthorizationComponent";
 const TrainingCrud = () => {
+  let token = Authorization();
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({});
   let reference = useRef();
@@ -26,7 +27,7 @@ const TrainingCrud = () => {
       console.log(x);
     }
     axios
-      .post("http://localhost:1000/api/training/adddata", formdata,Authorization())
+      .post("http://localhost:1000/api/training/adddata", formdata,token)
       .then((res) => {
         console.log(res);
         getData();
@@ -35,7 +36,7 @@ const TrainingCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/training/getdata",Authorization())
+      .get("http://localhost:1000/api/training/getdata",token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -45,7 +46,7 @@ const TrainingCrud = () => {
   const deleteapi = (a) => {
     a = `http://localhost:1000/api/training/deletedata?id=${a}`;
     axios
-      .delete(a,Authorization())
+      .delete(a,token)
       .then((res) => {
         getData();
       })

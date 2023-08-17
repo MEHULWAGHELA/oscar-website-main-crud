@@ -5,6 +5,7 @@ import Sidebar from '../Sidebar'
 import Hoc from '../Hoc'
 import { Authorization } from '../../AuthorizationComponent'
 const Placement = () => {
+  let token = Authorization();
   let [arr, setarr] = useState([]);
   let [obj, setobj] = useState({ hobbies: "" });
   let reference = useRef();
@@ -22,7 +23,7 @@ const Placement = () => {
       console.log(x);
     }
     axios
-      .post("https://student-api.mycodelibraries.com/api/user/add", formdata,Authorization())
+      .post("https://student-api.mycodelibraries.com/api/user/add", formdata,token)
       .then((res) => {
         console.log(res);
         getData();
@@ -31,7 +32,7 @@ const Placement = () => {
   };
   const getData = () => {
     axios
-      .get("https://student-api.mycodelibraries.com/api/user/get",Authorization())
+      .get("https://student-api.mycodelibraries.com/api/user/get",token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -41,7 +42,7 @@ const Placement = () => {
   const deleteapi = (a) => {
     a = `https://student-api.mycodelibraries.com/api/user/delete?id=${a}`;
     axios
-      .delete(a,Authorization())
+      .delete(a,token)
       .then((res) => {
         getData();
       })
