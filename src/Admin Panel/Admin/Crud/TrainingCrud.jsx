@@ -22,12 +22,8 @@ const TrainingCrud = () => {
     let formdata = new FormData();
     formdata.append("profile", obj.profile);
     formdata.append("p", obj.p);
-
-    for (let x of formdata.entries()) {
-      console.log(x);
-    }
     axios
-      .post("http://localhost:1000/api/training/adddata", formdata,token)
+      .post("http://localhost:1000/api/training/adddata", formdata, token)
       .then((res) => {
         console.log(res);
         getData();
@@ -36,7 +32,7 @@ const TrainingCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/training/getdata",token)
+      .get("http://localhost:1000/api/training/getdata", token)
       .then((res) => {
         arr = res.data.data;
         setarr([...arr]);
@@ -44,9 +40,9 @@ const TrainingCrud = () => {
       .catch((err) => console.log(err));
   };
   const deleteapi = (a) => {
-    a = `http://localhost:1000/api/training/deletedata?id=${a}`;
+    a = `http://localhost:1000/api/training/deletedata?_id=${a}`;
     axios
-      .delete(a,token)
+      .post(a, token)
       .then((res) => {
         getData();
       })

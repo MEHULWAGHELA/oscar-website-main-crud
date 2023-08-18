@@ -46,9 +46,9 @@ const AdminFormCrud = () => {
       .catch((err) => console.log(err));
   };
   const deleteapi = (a) => {
-    a = `https://student-api.mycodelibraries.com/api/user/delete?id=${a}`;
+    a = `https://student-api.mycodelibraries.com/api/user/delete?_id=${a}`;
     axios
-      .delete(a, token)
+      .post(a, token)
       .then((res) => {
         getData();
       })

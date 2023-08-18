@@ -46,7 +46,7 @@ const AboutCrud = () => {
   };
   const deleteapi = (id) => {
     axios
-      .delete(`http://localhost:1000/api/about/deletedata?_id=${id}`, Authorization())
+      .post(`http://localhost:1000/api/about/deletedata?_id=${id}`, Authorization())
       .then((res) => {
         getData();
       })
@@ -59,7 +59,7 @@ const AboutCrud = () => {
 
   const changeData = async (e) => {
     if (e.target.name === "icon") {
-      obj[e.target.name] = await toBase64(e.target.files[0]);
+      obj[e.target.name] = e.target.files[0];
     } else {
       obj[e.target.name] = e.target.value;
     }
@@ -74,12 +74,6 @@ const AboutCrud = () => {
     setobj({ ...obj });
     reference.current.value = "";
   };
-  const toBase64 = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = () => reject
-  })
   return (
     <div>
       <Row>

@@ -21,12 +21,12 @@ const SliderCrud = () => {
   const setData = () => {
     let formdata = new FormData();
     formdata.append("image", obj.image);
-
-    for (let x of formdata.entries()) {
-      console.log(x);
+    for(let key of formdata)
+    {
+      console.log(key)
     }
     axios
-      .post("http://localhost:1000/api/slider/adddata", formdata,token)
+      .post("http://localhost:1000/api/slider/adddata", formdata, token)
       .then((res) => {
         console.log(res);
         getData();
@@ -35,17 +35,18 @@ const SliderCrud = () => {
   };
   const getData = () => {
     axios
-      .get("http://localhost:1000/api/slider/getdata",token)
+      .get("http://localhost:1000/api/slider/getdata", token)
       .then((res) => {
         arr = res.data.data;
+        console.log(arr)
         setarr([...arr]);
       })
       .catch((err) => console.log(err));
   };
   const deleteapi = (a) => {
-    a = `http://localhost:1000/api/slider/deletedata?id=${a}`;
-    axios
-      .delete(a,token)
+    a = `http://localhost:1000/api/slider/deletedata?_id=${a}`;
+    console.log(a)
+    axios.post(a,token)
       .then((res) => {
         getData();
       })
@@ -58,7 +59,7 @@ const SliderCrud = () => {
   }, []);
 
   const changeData = (e) => {
-    obj[e.target.name] = e.target.value;
+    obj[e.target.name] = e.target.files[0];
     setobj({ ...obj });
   };
 

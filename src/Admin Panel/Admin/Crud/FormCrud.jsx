@@ -46,9 +46,9 @@ const FormCrud = () => {
       .catch((err) => console.log(err));
   };
   const deleteapi = (a) => {
-    a = `http://localhost:1000/api/form/deletedata?id=${a}`;
+    a = `http://localhost:1000/api/form/deletedata?_id=${a}`;
     axios
-      .delete(a,token)
+      .post(a,token)
       .then((res) => {
         getData();
       })
@@ -149,14 +149,14 @@ const FormCrud = () => {
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={12}>
                   <FormGroup>
-                    <Label for="textarea" className="fw-600"></Label>
+                    <Label for="textarea" className="fw-600">Textarea</Label>
                     <textarea
                       id="textarea"
                       name="textarea"
                       placeholder=""
-                      className="main"
+                      className="form-control"
                       onChange={changeData}
                       value={obj.textarea || ""}
                     />

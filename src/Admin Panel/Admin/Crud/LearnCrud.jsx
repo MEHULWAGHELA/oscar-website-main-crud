@@ -46,9 +46,9 @@ const LearnCrud = () => {
       .catch((err) => console.log(err));
   };
   const deleteapi = (a) => {
-    a = `http://localhost:1000/api/learn/deletedata?id=${a}`;
+    a = `http://localhost:1000/api/learn/deletedata?_id=${a}`;
     axios
-      .delete(a, token)
+      .post(a, token)
       .then((res) => {
         getData();
       })
